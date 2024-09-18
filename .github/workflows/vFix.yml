@@ -1,9 +1,7 @@
 name: Pipeline Scan and Veracode Fix
 on: workflow_dispatch
 
-permissions:
-  contents: read
-  pull-requests: write
+permissions: write-all
 
 jobs:
   build:
@@ -74,7 +72,7 @@ jobs:
           vid: ${{secrets.VERACODE_API_ID}}
           vkey: ${{secrets.VERACODE_API_KEY}}
           source_base_path_1: "src/main/com/veracode/verademo/controller/"
-          # source_base_path_2: "WEB-INF:src/main/webapp/WEB-INF"
+          source_base_path_2: "WEB-INF:src/main/webapp/WEB-INF"
           language: java
           prComment: false
           fixType: batch
