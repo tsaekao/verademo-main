@@ -40,7 +40,7 @@ jobs:
             name: verademo.war
         - name: pipeline-scan action step
           id: pipeline-scan
-          uses: veracode/Veracode-pipeline-scan-action@v1.0.12
+          uses: veracode/Veracode-pipeline-scan-action@esd-true
           with:
             vid: ${{secrets.VERACODE_API_ID}}
             vkey: ${{secrets.VERACODE_API_KEY}}
@@ -74,5 +74,11 @@ jobs:
           source_base_path_1: "src/main/com/veracode/verademo/controller/"
           source_base_path_2: "WEB-INF:src/main/webapp/WEB-INF"
           language: java
-          prComment: false
-          fixType: batch
+          prComment: true
+          fixType: 'batch'
+          debug: false
+          cwe: 89,117
+          files: 'changed'
+          codeSuggestion: false
+          createPR: true
+          
